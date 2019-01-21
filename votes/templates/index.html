@@ -7,8 +7,8 @@
 {% block body %}
     <div class="row mt-5 mb-5">
         <h2 class="ml-3"> All Candidates 
-            <a href='{% url 'votes:position_create' %}'> <span class="btn btn-outline-primary ml-3">Add New Position</span> </a>
-            <a href='{% url 'votes:candidate_create' %}'> <span class="btn btn-outline-primary ml-3">Add New Candidate</span> </a> 
+            <a href='{% url 'votes:position_create' %}'> <span class="btn btn-outline-primary ml-3">Create a position</span> </a>
+            <a href='{% url 'votes:candidate_create' %}'> <span class="btn btn-outline-primary ml-3">Add a new candidate</span> </a> 
         </h2>
     </div>
     <div class="list-group">
@@ -16,7 +16,7 @@
             <a href="{% url 'votes:candidate_detail' candidate.id %}" class="list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1">{{ candidate.lastname }}, {{candidate.firstname}}</h5>
-                    <small> {{ candidate.vote_set.count}} votes </small>
+                    <small> {{ candidate.vote_set.count}} vote(s) </small>
                 </div>
 
                 <p class="mb-1"> {{ candidate.position }} </p>

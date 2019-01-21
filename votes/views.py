@@ -32,6 +32,7 @@ def candidate_detail(request, candidate_id):
 def candidate_update(request, candidate_id):
     context = {}
     post = Candidate.objects.get(id=candidate_id)
+    context['id'] = candidate_id
 
     if request.method == 'POST':
         form = CandidateModelForm(request.POST, instance=post)

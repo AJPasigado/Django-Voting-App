@@ -4,24 +4,48 @@
 {% endblock head %}
 
 {% block body %}
+        <a href='{% url 'votes:index' %}'>
+                <button type="button" class="btn btn-outline-light mt-5 text-dark"> &lt  Go back to candidates</button>
+        </a>
 
-        <div class="row mt-5 mb-3"> 
-                <h1> {{ candidate.lastname }}, {{ candidate.firstname }} <a href='{% url 'votes:candidate_update' candidate.id %}'> <span class="badge badge-secondary">Edit</span> </a> </h1>
+        <div class="card mt-3">
+                <div class="card-body  p-5">
+                        <div class="row mb-1"> 
+                                <h1> {{ candidate.lastname }}, {{ candidate.firstname }} 
+                                
+                                <span class="ml-3">
+                                        <a href='{% url 'votes:vote' candidate.id %}'>
+                                                <button type="button" class="btn btn-primary">
+                                                        Vote <span class="badge badge-light ml-2"> {{ candidate.vote_set.count }}</span>
+                                                </button>
+                                        </a>
+                                </span>
+                        </div>
+
+                        <div class="row"> 
+                                <p> As <span class="font-weight-bold"> {{ candidate.position }} </span> </p> 
+                        </div>
+                        <div class="row"> 
+                                <small> Born 
+                                        <span> {{ candidate.birthdate }} </span> 
+                                </small>
+                        </div>
+                        <div class="row mt-2"> 
+                                <a href='{% url 'votes:candidate_update' candidate.id %}'> 
+                                        <span class="badge badge-dark">Update Details</span>
+                                </a>
+                        </div>
+                        <div class="row"> 
+                                <div class="card bg-light mb-3 mt-5 w-100">
+                                        <div class="card-header font-weight-bold" style="font-size: 15; letter-spacing: 3">PLATFORM</div>
+                                        <div class="card-body">
+                                                <p class="card-text">{{ candidate.platform }}</p>
+                                        </div>
+                                </div>
+
+                                <p class="text-justify mt-5 mb-5"> <p>
+                        </div>
+                </div>
         </div>
-
-        <div class="row"> 
-                <small> Position: {{ candidate.position }}</small> 
-        </div>
-        <div class="row"> 
-                <small> Birthdate: {{ candidate.birthdate }}</small>
-                 <small> {{ candidate.vote_set.count}} votes </small>
-        </div>
-        <div class="row"> 
-                <p class="text-justify mt-5 mb-5"> {{ candidate.platform }} <p>
-        </div>
-
-        <a href='{% url 'votes:vote' candidate.id %}'> <span class="btn btn-outline-primary ml-3">VOTE</span> </a>
-
-
-
+        
 {% endblock body %}

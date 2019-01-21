@@ -15,6 +15,9 @@
         </div>
 
              {{ form|crispy }}
-        <input type="submit" value="Update">
+        <input type="submit" class="btn btn-primary" value="Update">
+        <a href="{% url 'votes:candidate_detail' id %}">
+                <button type="button" class="btn btn-outline-danger"> Cancel</button>
+        </a>
     </form>
 {% endblock body %}

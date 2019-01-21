@@ -10,8 +10,15 @@
     <form action="{% url 'votes:position_create'%}" method="POST">
         {% csrf_token %}
 
+        <div class="row mt-5 mb-3"> 
+                <h1> Create a new Position </h1>
+        </div>
+
         {{ form|crispy }}
 
-        <input type="submit" value="Add">
+        <input type="submit" class="btn btn-primary" value="Add">
+        <a href='{% url 'votes:index' %}'>
+                <button type="button" class="btn btn-outline-danger"> Cancel </button>
+        </a>
     </form>
 {% endblock body %}

@@ -15,8 +15,17 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-light bg-light">
-            <a class="navbar-brand" href='{% url 'votes:index' %}'>Posts</a>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href='{% url 'votes:index' %}'> Candidates </a>
+
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href='{% url 'votes:position_create' %}'>Create a position</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href='{% url 'votes:candidate_create' %}'>Add a candidate</a>
+                </li>
+            </ul>
         </nav>
 
         <div class="container">
